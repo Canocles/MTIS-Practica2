@@ -1,0 +1,60 @@
+#%RAML 1.0
+title: MADS-API-REST
+version: v1
+baseUri: https://localhost:3000/api
+/generarPresupuesto:
+  description: Método para especificar los datos del presupuesto a generar
+  /{presupuesto}:
+    description: genera el documento con el ID del presupuesto a generar.
+    uriParameters:
+     presupuesto:
+       description: ID del presupuesto generado
+       type: integer
+       example: 116
+    post:
+      headers:
+        restKey:
+          description: Clave de acceso a la API.
+          type: string
+          example: soapkeydeprueba12345678
+        Content-Type:
+          type: string
+          example: application/json
+      body:
+        application/json:
+          example:
+            {
+              "fechaPresupuesto": "1992-02-13",
+              "idCliente": "2",
+              "referenciaProducto": "2323",
+              "cantidadProducto": "1"
+            }
+          properties: 
+            fechaPresupuesto:
+              example: "1992-02-13"
+            idCliente:
+              example: "000023546416"
+            referenciaProducto: 
+              example: "23455sds36126"
+            cantidadProducto:
+              example: "13"
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                {
+                  "id": [
+                      {
+                          "id": 121
+                      }
+                  ],
+                  "generado": true
+                }
+        401:
+          body:
+            application/json:
+              example:
+                {
+                  "message": "RestKey inválida"
+                }

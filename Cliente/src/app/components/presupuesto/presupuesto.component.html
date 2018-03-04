@@ -1,0 +1,83 @@
+<h4>Generar <strong>Presupuesto</strong></h4>
+<hr>
+<form (ngSubmit)="generarPresupuesto(forma)" #forma="ngForm" novalidate>
+  <div>
+    <div class="form-group row" [ngClass]="{ 'was-validated': fechaForm.errors?.required && fechaForm.touched }">
+      <label class="col-2 col-form-label">Fecha</label>
+      <div class="col-8">
+        <input class="form-control"
+               type="date"
+               required
+               [(ngModel)]="presupuesto.fechaPresupuesto"
+               name="presupuesto.fechaPresupuesto"
+               #fechaForm="ngModel">
+        <div class="invalid-feedback" *ngIf="fechaForm.errors?.required">
+          Este campo es obligatorio.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="form-group row" [ngClass]="{ 'was-validated': idClienteForm.errors?.required && idClienteForm.touched }">
+      <label class="col-2 col-form-label">ID Cliente</label>
+      <div class="col-8">
+        <input class="form-control"
+               type="number"
+               placeholder="Ejemplo: 00036588578"
+               required
+               [(ngModel)]="presupuesto.idCliente"
+               name="presupuesto.idCliente"
+               #idClienteForm="ngModel">
+        <div class="invalid-feedback" *ngIf="fechaForm.errors?.required">
+          Este campo es obligatorio.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="form-group row" [ngClass]="{ 'was-validated': productoForm.errors?.required  && productoForm.touched }">
+      <label class="col-2 col-form-label">ID Producto</label>
+      <div class="col-8">
+        <input class="form-control"
+               type="text"
+               placeholder="Ejemplo: 000001245LDS746465"
+               maxlength="20"
+               required
+               [(ngModel)]="presupuesto.referenciaProducto"
+               name="presupuesto.referenciaProducto"
+               #productoForm="ngModel">
+        <div class="invalid-feedback" *ngIf="fechaForm.errors?.required">
+          Este campo es obligatorio.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="form-group row" [ngClass]="{ 'was-validated': cantidadForm.errors?.required  && cantidadForm.touched }">
+      <label class="col-2 col-form-label">Cantidad producto</label>
+      <div class="col-8">
+        <input class="form-control"
+               type="number"
+               placeholder="Ejemplo: 6"
+               required
+               [(ngModel)]="presupuesto.cantidadProducto"
+               name="presupuesto.cantidadProducto"
+               #cantidadForm="ngModel">
+        <div class="invalid-feedback" *ngIf="fechaForm.errors?.required">
+          Este campo es obligatorio.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-2 col-form-label">&nbsp;</label>
+    <div class="input-group col-md-8">
+        <button [disabled]="!forma.valid"
+          type="submit" 
+          class="btn btn-outline-primary">
+        Generar Presupuesto
+      </button>
+    </div>
+  </div>
+</form>
+<hr>

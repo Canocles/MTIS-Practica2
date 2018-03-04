@@ -1,0 +1,15 @@
+<h4>Generar <strong>Presupuesto</strong></h4>
+<hr>
+<div *ngIf="idGenerado">
+  <div class="card text-center text-white bg-success mb-3">
+    <div class="card-body">
+      <h5 class="card-title"><strong>Presupuesto Generado</strong></h5>
+      <p class="card-text">ID del presupuesto generado: {{idGenerado}}</p>
+      <a routerLink="/generarPresupuesto" class="btn btn-danger btn-block" style="width: 50%; display: inline-block">Volver</a>
+    </div>
+  </div>
+</div>
+<div *ngIf="!idGenerado && idGenerado !== null" class="alert alert-danger" role="alert">
+  {{error}}
+</div>
+<hr>

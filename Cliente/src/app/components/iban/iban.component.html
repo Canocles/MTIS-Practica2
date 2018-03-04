@@ -1,0 +1,39 @@
+<h4>Validar <strong>IBAN</strong></h4>
+<hr>
+<form (ngSubmit)="validarIBAN(forma)" #forma="ngForm" novalidate>
+  <div>
+    <div class="form-group row" [ngClass]="{ 'was-validated': (ibanForm.errors?.required ||
+    ibanForm.errors?.pattern) && ibanForm.touched}">
+      <label class="col-2 col-form-label">IBAN</label>
+      <div class="col-8">
+        <input class="form-control"
+               type="text"
+               placeholder="Ejemplo: ES0690000001210123456789"
+               minlength="24"
+               maxlength="24"
+               [(ngModel)]="iban"
+               name="iban"
+               required
+               pattern="[a-zA-Z]{2}[0-9]{2}[a-zA-Z0-9]{4}[0-9]{7}([a-zA-Z0-9]?){0,16}"
+               #ibanForm="ngModel">
+        <div class="invalid-feedback" *ngIf="ibanForm.errors?.required">
+          Este campo es obligatorio.
+        </div>
+        <div class="invalid-feedback" *ngIf="ibanForm.errors?.pattern">
+          El campo no tiene el formato correcto. Ejemplo: ES0690000001210123456789
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-2 col-form-label">&nbsp;</label>
+    <div class="input-group col-md-8">
+      <button [disabled]="!forma.valid"
+        type="submit" 
+        class="btn btn-outline-primary">
+      Validar
+    </button>
+    </div>
+  </div>
+</form>
+<hr>

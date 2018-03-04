@@ -1,0 +1,12 @@
+<h4>Validar <strong>IBAN</strong></h4>
+<hr>
+<div *ngIf="peticion">
+  <div *ngIf="existe" class="alert alert-success" role="alert">
+    El IBAN es válido.
+  </div>
+  <div *ngIf="!existe && existe !== null" class="alert alert-danger" role="alert">
+    El IBAN no es válido, ya que, {{error}}
+  </div>
+  <a routerLink="/validarIBAN" class="btn btn-danger btn-block">Volver</a>
+</div>
+<hr>

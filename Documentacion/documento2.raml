@@ -1,0 +1,48 @@
+#%RAML 1.0
+title: MADS-API-REST
+version: v1
+baseUri: https://localhost:3000/api
+/consultaCodigoPostal:
+  description: Método utilizado para comprobar que el código postal indicado, existe en la Base de Datos.
+  /{CP}:
+    uriParameters:
+     CP:
+       description: Código Postal que vamos a comprobar
+       type: string
+       example: 53626287Q
+    description: Comprueba que dicho Código Postal existe en la Base de Datos
+    get:
+      headers:
+        restKey:
+          description: Clave de acceso a la API.
+          type: string
+          example: soapkeydeprueba12345678
+      responses:
+        200:
+          body:
+            application/json:
+              examples:
+                first: 
+                  {
+                    "existe": true,
+                    "datos": [
+                        {
+                            "codigo": "03690",
+                            "localidad": "San Vicente del Raspeig",
+                            "provincia": "Alicante"
+                        }
+                    ]
+                  }
+                second:
+                  {
+                    "existe": false,
+                    "message": "No existe el código postal en nuestra base de datos."
+                  }
+        401:
+          body:
+            application/json:
+              example:
+                {
+                  "existe": false,
+                  "message": "RestKey inválida"
+                }

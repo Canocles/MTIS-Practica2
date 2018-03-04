@@ -1,0 +1,20 @@
+<h4>Validar <strong>Código Postal</strong></h4>
+<hr>
+<div *ngIf="peticion">
+  <div *ngIf="existe">
+    <div class="card text-center text-white bg-success mb-3">
+      <div class="card-body">
+        <h5 class="card-title">{{poblacion}} <strong>({{provincia}})</strong></h5>
+        <p class="card-text">Código Postal: {{cp}}</p>
+        <a routerLink="/consultaCodigoPostal" class="btn btn-danger btn-block" style="width: 50%; display: inline-block">Volver</a>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!existe && existe !== null">
+    <div class="alert alert-danger" role="alert">
+        {{error}}
+    </div>
+    <a routerLink="/consultaCodigoPostal" class="btn btn-danger btn-block">Volver</a>
+  </div>
+</div>
+<hr>

@@ -1,0 +1,12 @@
+<h4>Validar <strong>NIF</strong></h4>
+<hr>
+<div *ngIf="peticion">
+  <div *ngIf="existe" class="alert alert-success" role="alert">
+    El DNI es válido.
+  </div>
+  <div *ngIf="!existe && existe !== null" class="alert alert-danger" role="alert">
+    El DNI no es válido.
+  </div>
+  <a routerLink="/validarNIF" class="btn btn-danger btn-block">Volver</a>
+</div>
+<hr>

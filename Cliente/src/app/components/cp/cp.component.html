@@ -1,0 +1,39 @@
+<h4>Consultar <strong>Código Postal</strong></h4>
+<hr>
+<form (ngSubmit)="consultaCodigoPostal(forma)" #forma="ngForm" novalidate>
+  <div>
+    <div class="form-group row" [ngClass]="{ 'was-validated': (cpForm.errors?.required ||
+    cpForm.errors?.pattern) && cpForm.touched}">
+      <label class="col-2 col-form-label">Código Postal</label>
+      <div class="col-8">
+        <input class="form-control"
+               type="text"
+               placeholder="Ejemplo: 03690"
+               minlength="5"
+               maxlength="5"
+               [(ngModel)]="cp"
+               name="cp"
+               required
+               pattern="((0[1-9]|5[0-2])|[1-4][0-9])[0-9]{3}"
+               #cpForm="ngModel">
+        <div class="invalid-feedback" *ngIf="cpForm.errors?.required">
+          Este campo es obligatorio.
+        </div>
+        <div class="invalid-feedback" *ngIf="cpForm.errors?.pattern">
+          El campo no tiene el formato correcto. Ejemplo: 03690
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-2 col-form-label">&nbsp;</label>
+    <div class="input-group col-md-8">
+      <button [disabled]="!forma.valid"
+        type="submit" 
+        class="btn btn-outline-primary">
+      Consultar
+    </button>
+    </div>
+  </div>
+</form>
+<hr>

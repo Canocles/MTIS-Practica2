@@ -1,0 +1,82 @@
+#%RAML 1.0
+title: MADS-API-REST
+version: v1
+baseUri: https://localhost:3000/api
+/validarNIF:
+  description: Método utilizado para consultar la validez de un NIF concreto.
+  /{NIF}:
+    uriParameters:
+     NIF:
+       description: NIF que queremos validar.
+       type: string
+       example: 53626287Q
+    description: Comprueba la validez de dicho NIF.
+    get:
+      headers:
+        restKey:
+          description: Clave de acceso a la API.
+          type: string
+          example: soapkeydeprueba12345678
+      responses:
+        200:
+          body:
+            application/json:
+              example: 
+                true
+        400:
+          body:
+            application/json:
+              example: 
+                false
+        401:
+          body:
+            application/json:
+              example: 
+                {
+                  "message": "La RestKey es inválida."
+                }
+/validarIBAN:
+  description: Método utilizado para consultar la validez de un IBAN concreto.
+  /{IBAN}:
+    uriParameters:
+     IBAN:
+       description: IBAN que queremos validar.
+       type: string
+       example: ES0690000001210123456789
+    description: Comprueba la validez de dicho NIF.
+    get:
+      headers:
+        restKey:
+          description: Clave de acceso a la API.
+          type: string
+          example: soapkeydeprueba12345678
+      responses:
+        200:
+          body:
+            application/json:
+              examples: 
+                first:
+                  {
+                    "existe": false,
+                    "message": "el módulo no coincide con los caracteres."
+                  }
+                second:
+                  {
+                    "existe": false,
+                    "message": "la longitud del IBAN es incorrecta."
+                  }
+                third:
+                  {
+                    "existe": false,
+                    "message": "los primeros dos caracteres deben empezar por ES"
+                  }
+                forth:
+                  true
+        401:
+          body:
+            application/json:
+              example:
+                {
+                  "existe": false,
+                  "message": "La RestKey es inválida"
+                }
