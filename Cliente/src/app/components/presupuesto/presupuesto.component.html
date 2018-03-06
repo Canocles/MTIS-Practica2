@@ -6,11 +6,11 @@
       <label class="col-2 col-form-label">Fecha</label>
       <div class="col-8">
         <input class="form-control"
-               type="date"
-               required
-               [(ngModel)]="presupuesto.fechaPresupuesto"
-               name="presupuesto.fechaPresupuesto"
-               #fechaForm="ngModel">
+                type="date"
+                required
+                [(ngModel)]="presupuesto.fechaPresupuesto"
+                name="presupuesto.fechaPresupuesto"
+                #fechaForm="ngModel">
         <div class="invalid-feedback" *ngIf="fechaForm.errors?.required">
           Este campo es obligatorio.
         </div>
@@ -22,12 +22,12 @@
       <label class="col-2 col-form-label">ID Cliente</label>
       <div class="col-8">
         <input class="form-control"
-               type="number"
-               placeholder="Ejemplo: 00036588578"
-               required
-               [(ngModel)]="presupuesto.idCliente"
-               name="presupuesto.idCliente"
-               #idClienteForm="ngModel">
+                type="number"
+                placeholder="Ejemplo: 00036588578"
+                required
+                [(ngModel)]="presupuesto.idCliente"
+                name="presupuesto.idCliente"
+                #idClienteForm="ngModel">
         <div class="invalid-feedback" *ngIf="fechaForm.errors?.required">
           Este campo es obligatorio.
         </div>
@@ -39,13 +39,13 @@
       <label class="col-2 col-form-label">ID Producto</label>
       <div class="col-8">
         <input class="form-control"
-               type="text"
-               placeholder="Ejemplo: 000001245LDS746465"
-               maxlength="20"
-               required
-               [(ngModel)]="presupuesto.referenciaProducto"
-               name="presupuesto.referenciaProducto"
-               #productoForm="ngModel">
+                type="text"
+                placeholder="Ejemplo: 000001245LDS746465"
+                maxlength="20"
+                required
+                [(ngModel)]="presupuesto.referenciaProducto"
+                name="presupuesto.referenciaProducto"
+                #productoForm="ngModel">
         <div class="invalid-feedback" *ngIf="fechaForm.errors?.required">
           Este campo es obligatorio.
         </div>
@@ -57,12 +57,12 @@
       <label class="col-2 col-form-label">Cantidad producto</label>
       <div class="col-8">
         <input class="form-control"
-               type="number"
-               placeholder="Ejemplo: 6"
-               required
-               [(ngModel)]="presupuesto.cantidadProducto"
-               name="presupuesto.cantidadProducto"
-               #cantidadForm="ngModel">
+                type="number"
+                placeholder="Ejemplo: 6"
+                required
+                [(ngModel)]="presupuesto.cantidadProducto"
+                name="presupuesto.cantidadProducto"
+                #cantidadForm="ngModel">
         <div class="invalid-feedback" *ngIf="fechaForm.errors?.required">
           Este campo es obligatorio.
         </div>

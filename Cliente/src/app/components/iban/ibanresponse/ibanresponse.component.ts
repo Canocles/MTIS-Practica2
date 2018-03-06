@@ -33,6 +33,8 @@ export class IbanresponseComponent implements OnInit {
         this.existe = data.existe;
         this.error = data.message;
       }
+    }, error => {
+      this.error = error.message;;
     });
   }
 

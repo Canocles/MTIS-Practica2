@@ -17,7 +17,7 @@ cpModel.consultaCodigoPostal = function(cp, restKey, callback) {
                 throw err;      
             } else {
                 if (key.length == 0) {
-                    callback("RestKey inválida", false)
+                    callback("La RestKey es inválida.", false)
                 } else {
                     var sql = "SELECT * FROM codigoPostal WHERE codigo = " + cp;
                     connection.query(sql, function (err, key) {

@@ -26,7 +26,11 @@ export class PresupuestoComponent {
   generarPresupuesto(forma: NgForm) {
     this.serviciosService.generarPresupuesto(this.presupuesto)
       .subscribe(data=>{
-        this.router.navigate([`/generarPresupuesto/${data.id[0].id}`]);
-      }, error => console.error(error))
+        if (!data.message) {
+          this.router.navigate([`/generarPresupuesto/${data.id[0].id}`]);
+        } else {
+          this.router.navigate([`/generarPresupuesto/error`]);
+        }
+      });
   }
 }

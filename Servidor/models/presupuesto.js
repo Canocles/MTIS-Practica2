@@ -17,7 +17,7 @@ presupuestoModel.generarPresupuesto = function (presupuesto, restKey, callback) 
                 throw err;      
             } else {
                 if (key.length == 0) {
-                    callback("RestKey inválida", false)
+                    callback("La RestKey es inválida.", false)
                 } else {
                     var sqlId = "SELECT AUTO_INCREMENT AS id FROM INFORMATION_SCHEMA.TABLES WHERE Table_name = 'presupuesto';";
                     connection.query(sqlId, function (err, resultId) {

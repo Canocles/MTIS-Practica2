@@ -10,7 +10,7 @@ module.exports = function(app) {
 		if(nif.length == 9) {
 			NIFModel.validarNIF(nif, restKey, function (error, data) {
 				if (error) {
-					res.status(401).json({"message":"La RestKey es inválida."});
+					res.status(200).json({"message":"La RestKey es inválida."});
 				} else {
 					res.status(200).json(data);
 				}

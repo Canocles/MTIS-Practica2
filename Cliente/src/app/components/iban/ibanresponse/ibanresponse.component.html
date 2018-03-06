@@ -5,7 +5,7 @@
     El IBAN es válido.
   </div>
   <div *ngIf="!existe && existe !== null" class="alert alert-danger" role="alert">
-    El IBAN no es válido, ya que, {{error}}
+    {{ error }}
   </div>
   <a routerLink="/validarIBAN" class="btn btn-danger btn-block">Volver</a>
 </div>

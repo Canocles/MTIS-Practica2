@@ -43,7 +43,7 @@ baseUri: https://localhost:3000/api
        description: IBAN que queremos validar.
        type: string
        example: ES0690000001210123456789
-    description: Comprueba la validez de dicho NIF.
+    description: Comprueba la validez de dicho IBAN.
     get:
       headers:
         restKey:
@@ -58,17 +58,17 @@ baseUri: https://localhost:3000/api
                 first:
                   {
                     "existe": false,
-                    "message": "el módulo no coincide con los caracteres."
+                    "message": "El módulo no coincide con los caracteres."
                   }
                 second:
                   {
                     "existe": false,
-                    "message": "la longitud del IBAN es incorrecta."
+                    "message": "La longitud del IBAN es incorrecta."
                   }
                 third:
                   {
                     "existe": false,
-                    "message": "los primeros dos caracteres deben empezar por ES"
+                    "message": "Los primeros dos caracteres deben empezar por ES"
                   }
                 forth:
                   true

@@ -10,7 +10,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="!existe && existe !== null">
+  <div *ngIf="error !== null">
     <div class="alert alert-danger" role="alert">
         {{error}}
     </div>

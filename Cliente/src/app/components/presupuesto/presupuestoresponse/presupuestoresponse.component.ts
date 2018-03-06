@@ -11,12 +11,16 @@ import { ServiciosService } from '../../../services/servicios.service';
 export class PresupuestoresponseComponent{
 
   idGenerado: string = null;
+  error: string = null;
 
   constructor(private serviciosService: ServiciosService,
     private route: ActivatedRoute) {
       this.route.params
         .subscribe(parametros => {
-          this.idGenerado = parametros['id']
+          if (parametros['id'] !== 'error')
+            this.idGenerado = parametros['id'];
+          else
+            this.error = 'La RestKey es inválida';
         });
     }
 }

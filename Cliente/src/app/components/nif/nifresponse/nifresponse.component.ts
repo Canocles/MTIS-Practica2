@@ -14,6 +14,8 @@ export class NifresponseComponent implements OnInit {
   peticion: boolean = false;
   existe: boolean = null;
 
+  error: string = null;
+
   constructor(private serviciosService: ServiciosService,
               private route: ActivatedRoute) {
     this.route.params
@@ -26,7 +28,10 @@ export class NifresponseComponent implements OnInit {
     this.serviciosService.validarNIF(this.nif)
     .subscribe(data=>{
       this.peticion = true;
-      this.existe = data;
-    }, error => console.error(error))
+      if (data.message)
+        this.error = data.message;
+      else 
+        this.existe = data;
+    });
   }
 }

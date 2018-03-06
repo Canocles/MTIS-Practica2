@@ -20,14 +20,14 @@ function validar(IBAN) {
     var numeroSustitucion;
     //La longitud debe ser siempre de 24 caracteres
     if (IBAN.length != 24) {
-        return [false, "la longitud del IBAN es incorrecta."];
+        return [false, "La longitud del IBAN es incorrecta."];
     }
 
     // Se coge las primeras dos letras y se pasan a números
     letra1 = IBAN.substring(0, 1);
     letra2 = IBAN.substring(1, 2);
     if (letra1 !== "E" || letra2 !== "S") {
-        return [false, "los primeros dos caracteres deben empezar por ES"];
+        return [false, "Los primeros dos caracteres deben empezar por ES"];
     }
     num1 = getnumIBAN(letra1);
     num2 = getnumIBAN(letra2);
@@ -41,7 +41,7 @@ function validar(IBAN) {
     if (resto == 1) {
         return [true, null];
     } else {
-        return [false, "el módulo no coincide con los caracteres."];
+        return [false, "El módulo no coincide con los caracteres."];
     }
 }
 
@@ -70,7 +70,6 @@ ibanModel.validarIBAN = function(IBAN, restKey, callback) {
             } else {
                 if (key.length == 0) {
                     callback("La RestKey es inválida", false)
-                    console.log(key.length)
                 } else {
                     var valido = validar(IBAN);
                     callback(valido[1], valido[0])

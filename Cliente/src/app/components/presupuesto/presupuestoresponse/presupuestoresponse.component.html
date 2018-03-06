@@ -9,7 +9,10 @@
     </div>
   </div>
 </div>
-<div *ngIf="!idGenerado && idGenerado !== null" class="alert alert-danger" role="alert">
-  {{error}}
-</div>
+<div *ngIf="error !== null">
+    <div class="alert alert-danger" role="alert">
+      {{error}}
+    </div>
+    <a routerLink="/generarPresupuesto" class="btn btn-danger btn-block">Volver</a>
+  </div>
 <hr>

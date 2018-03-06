@@ -9,7 +9,7 @@ export class ServiciosService {
 
   apiURL:string = "http://localhost:3000/api"
 
-  constructor(private http:Http) { }
+  constructor(private http:Http) {}
 
   validarNIF(nif: string) {
     let requestURL = `${this.apiURL}/validarNIF/${nif}`
